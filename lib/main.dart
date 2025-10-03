@@ -14,7 +14,8 @@ void onDecoracoesPressed(BuildContext context, String title) {
         builder: (context) => const decoracoes()),
     );
   }
-
+  
+ 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -28,12 +29,25 @@ class MainApp extends StatelessWidget {
       icon: Image.asset('assets/logo.png',), onPressed: () {  }, // For local assets
    
         )),
-        body: 
-          Container(
+        body:  Column(
+          children: <Widget>[
+            Container( 
+              color: const Color.fromARGB(255, 0, 0, 0),
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                ElevatedButton(onPressed:() {
+                onDecoracoesPressed(context, "decoracoes");
+                }, child: Text('oieeee'),
+                )
+                
+                ],
+              ),
+            ),
+  
+        ]),
 
-          ),
-        ),
-
-      );
+    ));
   }
 }

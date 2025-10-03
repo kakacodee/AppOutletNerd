@@ -1,4 +1,3 @@
--- drop database dbMer;
 create database dbMer;
 use dbMer;
 

@@ -4,7 +4,8 @@
 
 
 void main() {
-  runApp(MainApp());
+  runApp(const MaterialApp (title: "Decorações",
+  home: decoracoes(),));
 }
 
  class decoracoes extends StatelessWidget{

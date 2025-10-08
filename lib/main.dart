@@ -37,11 +37,35 @@ class MainApp extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                ElevatedButton(onPressed:() {
-                onDecoracoesPressed(context, "decoracoes");
-                }, child: Text('oieeee'),
-                )
-                
+           
+                TextButton(onPressed:() {
+                  onDecoracoesPressed(context, "Decorações");
+                }, child: Text('decorações'),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(fontSize: 20)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "brinquedos");
+                }, child: Text('brinquedos'),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(fontSize: 20)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "leituras");
+                }, child: Text('leituras'),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(fontSize: 20)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "roupas");
+                }, child: Text('roupas'),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(fontSize: 20)
+                ),
+                ),
                 ],
               ),
             ),

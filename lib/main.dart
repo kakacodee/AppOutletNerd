@@ -5,7 +5,7 @@ import 'decoracoes.dart';
 import 'brinquedos.dart';
 
 void main() {
-  runApp(MainApp());
+  runApp(MaterialApp(title:"APP", home: MainApp()));
 }
 void onDecoracoesPressed(BuildContext context, String title) {
     Navigator.push(
@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(backgroundColor:Color.fromRGBO(169, 7, 7, 1),
        leading: 
     IconButton(
-      icon: Image.asset('assets/logo.png',), onPressed: () {  }, // For local assets
+      icon: Image.asset('assets/logo.png',), onPressed: () { }, // For local assets
    
         )),
         body:  Column(

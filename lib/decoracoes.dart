@@ -4,9 +4,17 @@
 
 
 void main() {
-  runApp(const MaterialApp (title: "Decorações",
+  runApp(MaterialApp (title: "Decorações",
   home: decoracoes(),));
 }
+
+void onVoltarPressed(BuildContext context, String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MainApp()),
+    );
+  }
 
  class decoracoes extends StatelessWidget{
   const decoracoes({super.key});
@@ -18,7 +26,14 @@ void main() {
         appBar: AppBar(backgroundColor:Color.fromRGBO(64, 54, 151, 0.308),
        leading: 
     IconButton(
-      icon: Image.asset('assets/logo.png',), onPressed: () {  }, // For local assets
+      icon: Image.asset('assets/logo.png'), onPressed: () { onVoltarPressed(context, "MainApp"); {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MainApp()),
+    );
+  } 
+  }, 
    
         )),
         body:  Column(

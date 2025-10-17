@@ -14,6 +14,47 @@ void onDecoracoesPressed(BuildContext context, String title) {
         builder: (context) => const decoracoes()),
     );
   }
+
+  class GridProdutos extends StatelessWidget {
+  const GridProdutos({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final images = [
+      'assets/Mario.jpg',
+      'assets/Pikachu.jpg',
+      'assets/zoro.jpg',
+      'assets/Mario.jpg',
+      'assets/Pikachu.jpg',
+      'assets/zoro.jpg',
+    ];
+
+    return GridView.builder(
+      shrinkWrap: true,
+      itemCount: images.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3, // 3 colunas
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+      ),
+      itemBuilder: (context, index) {
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: Colors.red, width: 3),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(13),
+            child: Image.asset(
+              images[index],
+              fit: BoxFit.cover,
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
   
  
 class MainApp extends StatelessWidget {
@@ -29,7 +70,7 @@ class MainApp extends StatelessWidget {
       icon: Image.asset('assets/logo.png'), onPressed: () { },
    
         )),
-        body:  Column(
+        body: SingleChildScrollView(child: Column(
           children: <Widget>[
             Container( 
               color: const Color.fromARGB(255, 0, 0, 0),
@@ -94,7 +135,12 @@ class MainApp extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 24)
 
-        ) ), Container(
+        ) ),
+        
+        Center(
+          child: GridProdutos()),
+
+           Container(
                       color: Colors.black,
                       padding: EdgeInsets.symmetric(horizontal: 18, vertical: 18),
                       child: Column(
@@ -120,7 +166,7 @@ class MainApp extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
-                                  style: TextStyle(color: Colors.white70, fontSize: 13),
+                                  style: TextStyle(color: Colors.white70, fontSize: 13), textAlign: TextAlign.center,
                                 ),
                               ),
                             ],
@@ -139,10 +185,15 @@ class MainApp extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ],
+
+
+      ]), 
+        
+       
+      
                 ),
-              ),
-     ); 
+             
+));
 }
 }
 

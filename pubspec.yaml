@@ -20,4 +20,7 @@ flutter:
   assets:
     - assets/logo.png
     - assets/banner.png
+    - assets/Mario.jpg
+    - assets/zoro.jpg
+    - assets/Pikachu.jpg
 

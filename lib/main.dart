@@ -43,6 +43,7 @@ void onDecoracoesPressed(BuildContext context, String title) {
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.red, width: 3),
           ),
+
           child: ClipRRect(
             borderRadius: BorderRadius.circular(13),
             child: Image.asset(

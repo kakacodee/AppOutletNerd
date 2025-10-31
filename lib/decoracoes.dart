@@ -1,22 +1,29 @@
- import 'main.dart';
- import 'package:flutter/material.dart';
- 
-
+import 'main.dart';
+import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp (title: "Decorações",
-  home: decoracoes(),));
+  runApp(MaterialApp(
+    title: "Decorações",
+    home: const decoracoes(),
+  ));
 }
 
-void onVoltarPressed(BuildContext context, String title) {
+void onDecoracoesPressed(BuildContext context, String title) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const MainApp()),
+        builder: (context) => const decoracoes()),
     );
   }
 
-  class decoracoes extends StatelessWidget {
+void onVoltarPressed(BuildContext context, String title) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const MainApp()),
+  );
+}
+
+class decoracoes extends StatelessWidget {
   const decoracoes({super.key});
 
   @override
@@ -46,20 +53,44 @@ void onVoltarPressed(BuildContext context, String title) {
             },
           ),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: Colors.black,
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    menuButton(context, "Decorações"),
-                    menuButton(context, "Brinquedos"),
-                    menuButton(context, "Roupas"),
-                    menuButton(context, "Leituras"),
-                  ],
+    body: SingleChildScrollView(child: Column(
+          children: <Widget>[
+            Container( 
+              color: const Color.fromARGB(255, 0, 0, 0),
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+           
+                TextButton(onPressed:() {
+                  onDecoracoesPressed(context, "Decorações");
+                }, child: Text('Decorações'),
+                style: TextButton.styleFrom(foregroundColor: Colors.white,
+                  textStyle: TextStyle(fontSize: 20)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "brinquedos");
+                }, child: Text('Brinquedos'),
+                style: TextButton.styleFrom(foregroundColor: Colors.white,
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "roupas");
+                }, child: Text('Roupas'),
+                style: TextButton.styleFrom(foregroundColor: Colors.white,
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
+                ),
+                ),
+                       TextButton(onPressed:() {
+                onDecoracoesPressed(context, "Leituras");
+                }, child: Text('Leituras'),
+                style: TextButton.styleFrom(foregroundColor: Colors.white,
+                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
+                ),
+                ),
+                ],
                 ),
               ),
               const SizedBox(height: 20),
@@ -77,56 +108,55 @@ void onVoltarPressed(BuildContext context, String title) {
                   itemCount: produtos.length,
                   itemBuilder: (context, index) {
                     final produto = produtos[index];
-                    return GestureDetector(
-                      onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Clicou em ${produto["titulo"]}")),
-                        );
-                      },
-                      child: Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                    return Card(
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  minimumSize: const Size(0, 0),
+                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                onPressed: () {
+                                  // Aqui você pode colocar a navegação futuramente:
+                                  // Navigator.push(context, MaterialPageRoute(builder: (_) => DetalhesProduto()));
+                                },
                                 child: Image.asset(
                                   produto["imagem"]!,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                             ),
-                            Text(
-                              produto["titulo"]!,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          Text(
+                            produto["titulo"]!,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                produto["preco"]!,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(fontSize: 14),
-                              ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              produto["preco"]!,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 14),
                             ),
-                            const SizedBox(height: 8),
-                          ],
-                        ),
-                      ),
+                          ),
+                        
+                        ],
+                      ), 
                     );
                   },
-                ),
-              ),
-        
-
-            Container(
-                      color: Colors.black,
+                ),), Container(color: Colors.black,
                       padding: EdgeInsets.symmetric(horizontal: 18, vertical: 18),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -170,29 +200,13 @@ void onVoltarPressed(BuildContext context, String title) {
                         ],
                       ),
                     ),
-
-
-    ] ) )));
-
+                ]
+              ),
+            
+          ),
+        ),
+      );
   }
 
-  TextButton menuButton(BuildContext context, String label) {
-    return TextButton(
-      onPressed: () {
-        onDecoracoesPressed(context, label);
-      },
-      child: Text(label),
-      style: TextButton.styleFrom(
-        foregroundColor: Colors.white,
-        textStyle: const TextStyle(fontSize: 18),
-      ),
-    );
-  }
 }
 
-// Função placeholder — substitua pela sua real
-void onDecoracoesPressed(BuildContext context, String title) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Clicou em $title')),
-  );
-}

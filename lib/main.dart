@@ -163,7 +163,7 @@ class MainApp extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 12),
+                              SizedBox(width: 10),
                               Expanded(
                                 child: Text(
                                   'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
@@ -172,18 +172,35 @@ class MainApp extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(height: 14),
+ Wrap(
+            alignment: WrapAlignment.start,
+            spacing: 2,
+            children:[
+             SizedBox(height:0,width: 1,), Image.asset("assets/payments.png")
+            ]
+            
+            
+          ),
 
-                          // pagamentos (ícones)
+                         Wrap(
+                          alignment: WrapAlignment.end, spacing: 1, children: [
+                          Container( width: 200,
+                                height: 30, margin: const EdgeInsets.only(bottom:2), child:Text("AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO",textAlign: TextAlign.center, style: TextStyle(color:Colors.white, fontSize: 12),))])
+                         
+
+                          
+
+            
                       
-                          SizedBox(height: 12),
+                         , SizedBox(height: 12),
                           Divider(color: Colors.white12),
                           SizedBox(height: 6),
                           Text(
                             '© Outletnerd . Todos os direitos reservados',
                             style: TextStyle(color: Colors.white38, fontSize: 12),
-                          ),
-                        ],
+                          ), Container( width: 200,
+                                height: 30, margin: const EdgeInsets.only(left:100), child: Image.asset('assets/techne.png'))
+                      ],
                       ),
                     ),
 

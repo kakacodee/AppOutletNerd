@@ -3,6 +3,7 @@ import 'roupas.dart';
 import 'leituras.dart';
 import 'decoracoes.dart';
 import 'brinquedos.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp(title:"APP", home: MainApp()));
@@ -14,6 +15,31 @@ void onDecoracoesPressed(BuildContext context, String title) {
         builder: (context) => const decoracoes()),
     );
   }
+  void onBrinquedosPressed(BuildContext context, String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const brinquedos()),
+    );
+  }
+
+   void onLeiturasPressed(BuildContext context, String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const leituras()),
+    );
+  }
+
+   void onRoupasPressed(BuildContext context, String title) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const leituras()),
+    );
+  }
+
+
 
   class GridProdutos extends StatelessWidget {
   const GridProdutos({super.key});
@@ -82,33 +108,25 @@ class MainApp extends StatelessWidget {
            
                 TextButton(onPressed:() {
                   onDecoracoesPressed(context, "Decorações");
-                }, child: Text('Decorações'),
-                style: TextButton.styleFrom(foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 20)
-                ),
+                }, child: Text('Decorações', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),),
+             
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "brinquedos");
-                }, child: Text('Brinquedos'),
-                style: TextButton.styleFrom(foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
-                ),
+                onBrinquedosPressed(context, "brinquedos");
+                }, child: Text('Brinquedos', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),),
+              
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "roupas");
-                }, child: Text('Roupas'),
-                style: TextButton.styleFrom(foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
-                ),
+                onRoupasPressed(context, "roupas");
+                }, child: Text('Roupas', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),),
+              
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "Leituras");
-                }, child: Text('Leituras'),
-                style: TextButton.styleFrom(foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 20, color: Colors.white)
+                onLeiturasPressed(context, "Leituras");
+                }, child: Text('Leituras', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),
+
                 ),
-                ),
-                ],
+              )],
               ),  ),
               Container(child: Center(
             child: Column(
@@ -132,86 +150,166 @@ class MainApp extends StatelessWidget {
     )
     ), Padding(padding: EdgeInsets.symmetric(vertical: 60),
                       child: Text(
-                        'Mais Vendidos',
-                        style: TextStyle(
-                          fontSize: 24)
+                        'Mais Vendidos', 
+                        style: GoogleFonts.passionOne(fontSize: 36, color:Colors.grey), 
+                        
 
-        ) ),
+                        
+
+        ) ), 
         
         Center(
           child: GridProdutos()),
 
-           Container(
-                      color: Colors.black,
-                      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 18),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // logo e descrição
-                              Container(
-                                width: 72,
-                                height: 72,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[900],
-                                  borderRadius: BorderRadius.circular(8),
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/logo.png'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
-                                  style: TextStyle(color: Colors.white70, fontSize: 13), textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
- Wrap(
-            alignment: WrapAlignment.start,
-            spacing: 2,
-            children:[
-             SizedBox(height:0,width: 1,), Image.asset("assets/payments.png")
-            ]
-            
-            
+          Container(
+
+      color: Colors.black,
+
+      padding: EdgeInsets.all(20),
+
+      child: Column(
+
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+
+          Row(
+
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+
+              // Logo Section
+
+              CircleAvatar(
+
+                backgroundColor: Colors.black,
+
+                radius: 30,
+
+                backgroundImage: AssetImage('assets/logo.png'), // Add your logo image here
+
+              ),
+
+              SizedBox(width: 15),
+
+              // Text Description
+
+              Expanded(
+
+                child: Text(
+
+                  'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
+
+                  style: TextStyle(
+
+                    color: Colors.white,
+
+                    fontSize: 14,
+
+                  ),
+
+                ),
+
+              ),
+
+            ],
+
           ),
 
-                         Wrap(
-                          alignment: WrapAlignment.end, spacing: 1, children: [
-                          Container( width: 200,
-                                height: 30, margin: const EdgeInsets.only(bottom:2), child:Text("AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO",textAlign: TextAlign.center, style: TextStyle(color:Colors.white, fontSize: 12),))])
-                         
+          SizedBox(height: 20),
 
-                          
+          Row(
 
-            
-                      
-                         , SizedBox(height: 12),
-                          Divider(color: Colors.white12),
-                          SizedBox(height: 6),
-                          Text(
-                            '© Outletnerd . Todos os direitos reservados',
-                            style: TextStyle(color: Colors.white38, fontSize: 12),
-                          ), Container( width: 200,
-                                height: 30, margin: const EdgeInsets.only(left:100), child: Image.asset('assets/techne.png'))
-                      ],
-                      ),
-                    ),
+            crossAxisAlignment: CrossAxisAlignment.start,
 
+            children: [
 
-      ]), 
+              // Payment Methods Image (as single image)
+
+              Image.asset(
+
+                'assets/payments.png', // Your combined payment methods image here
+
+                height: 50,
+
+              ),
+
+              SizedBox(width: 30),
+
+              // Address Section
+
+              Expanded(
+
+                child: Text(
+
+                  'AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO',
+
+                  style: TextStyle(
+
+                    color: Colors.white,
+
+                    fontSize: 12,
+
+                  ),
+
+                ),
+
+              ),
+
+            ],
+
+          ),
+
+          SizedBox(height: 30),
+
+          SizedBox(height: 10),
+
+          // Bottom Footer Row
+
+          Row(
+
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+
+              Text(
+
+                '© Outletnerd . Todos os direitos reservados',
+
+                style: TextStyle(
+
+                  color: Colors.white,
+
+                  fontSize: 12,
+
+                  letterSpacing: 1.2,
+
+                ),
+
+              ),
+
+              Image.asset(
+
+                'assets/techne.png', // 4TECHNE logo image here
+
+                height: 40,
+
+              ),
+
+            ],
+
+          ),
+
+        ],
+
+      ),
         
        
       
-                ),
+          )  ] ),
              
-));
+)));
 }
 }
 

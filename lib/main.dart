@@ -4,6 +4,7 @@ import 'leituras.dart';
 import 'decoracoes.dart';
 import 'brinquedos.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'venda.dart';
 
 void main() {
   runApp(MaterialApp(title:"APP", home: MainApp()));
@@ -39,6 +40,13 @@ void onDecoracoesPressed(BuildContext context, String title) {
     );
   }
 
+void onVoltarPressed(BuildContext context, String title) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const MainApp()),
+  );
+}
+
 
 
   class GridProdutos extends StatelessWidget {
@@ -46,14 +54,14 @@ void onDecoracoesPressed(BuildContext context, String title) {
 
   @override
   Widget build(BuildContext context) {
-    final images = [
-      'assets/Mario.jpg',
-      'assets/Pikachu.jpg',
-      'assets/zoro.jpg',
-      'assets/Mario.jpg',
-      'assets/Pikachu.jpg',
-      'assets/zoro.jpg',
-    ];
+    final images = [{'path':
+      'assets/Mario.jpg', 'page': const VendaPage()},
+     {'path': 'assets/Pikachu.jpg','page': const VendaPage()},
+    {'path':  'assets/zoro.jpg', 'page': const VendaPage()},
+    {'path':  'assets/Mario.jpg', 'page': const VendaPage()},
+    { 'path': 'assets/Pikachu.jpg','page': const VendaPage() },
+    { 'path': 'assets/zoro.jpg','page': const VendaPage() },
+  ];
 
     return GridView.builder(
       shrinkWrap: true,
@@ -64,22 +72,31 @@ void onDecoracoesPressed(BuildContext context, String title) {
         crossAxisSpacing: 12,
       ),
       itemBuilder: (context, index) {
-        return Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.red, width: 3),
-          ),
-
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(13),
-            child: Image.asset(
-              images[index],
-              fit: BoxFit.cover,
-            ),
-          ),
-        );
-      },
-    );
+        final item = images[index];
+        return InkWell(
+                borderRadius: BorderRadius.circular(16),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => item['page'] as Widget),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.red, width: 3),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(13),
+                    child: Image.asset(
+                      item['path'] as String,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              );
+            });
+ 
   }
 }
   

@@ -196,7 +196,7 @@ class MainApp extends StatelessWidget {
 
             children: [
 
-              // Logo Section
+           
 
               CircleAvatar(
 
@@ -204,13 +204,13 @@ class MainApp extends StatelessWidget {
 
                 radius: 30,
 
-                backgroundImage: AssetImage('assets/logo.png'), // Add your logo image here
+                backgroundImage: AssetImage('assets/logo.png'), 
 
               ),
 
               SizedBox(width: 15),
 
-              // Text Description
+             
 
               Expanded(
 

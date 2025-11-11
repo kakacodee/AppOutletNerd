@@ -27,6 +27,115 @@ void onVoltarPressed(BuildContext context, String title) {
   Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));
 }
 
+
+
+class ProdutoCard extends StatelessWidget {
+  const ProdutoCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(16),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+          
+            Card(
+             elevation: 2,
+              child: Image.asset(
+                'assets/Pikachu.jpg', 
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
+
+            const SizedBox(width: 16),
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Pelúcia Pikachu Média 30cm - Murph™',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  const Text(
+                    'Por: R\$ 50,90',
+                    style: TextStyle(
+                      color: Colors.black87,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const Text(
+                    'Ou 5x de 10,90 sem juros',
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 13,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+
+                  Row(
+                    children: const [
+                      Icon(Icons.local_shipping, color: Colors.black54, size: 18),
+                      SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          'FRETE GRÁTIS APENAS PARA A GRANDE SÃO PAULO',
+                          style: TextStyle(
+                            fontSize: 11.5,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+
+                  // Botão
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2ECC71),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      onPressed: () {
+                        // ação ao clicar no botão
+                      },
+                      child: const Text(
+                        'Adicionar ao Carrinho',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class VendaPage extends StatelessWidget {
   const VendaPage({super.key});
 
@@ -75,60 +184,14 @@ class VendaPage extends StatelessWidget {
                   ],
                 ),
               ),
-
+              
+ Container(
+  child: const ProdutoCard()
+ )
               // PRODUTO PRINCIPAL
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Image.asset('assets/Pikachu.jpg', height: 180),
-                    const SizedBox(height: 12),
-                    Text(
-                      "Pelúcia Pikachu Média 30cm - Murph™",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      "Por: R\$ 50,90\nOu 5x de 10,90 sem juros",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.poppins(fontSize: 16, color: Colors.black87),
-                    ),
-                    const SizedBox(height: 8),
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.grey[200],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.local_shipping_outlined, color: Colors.black),
-                          const SizedBox(width: 8),
-                          Text(
-                            "FRETE GRÁTIS APENAS PARA A GRANDE SÃO PAULO",
-                            style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromRGBO(76, 175, 80, 1),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                      ),
-                      child: Text("Adicionar ao Carrinho",
-                          style: GoogleFonts.poppins(fontSize: 16, color: Colors.white)),
-                    ),
-                  ],
-                ),
-              ),
+    
 
-              const Divider(thickness: 1, height: 32),
+              ,const Divider(thickness: 1, height: 32),
 
               // DESCRIÇÃO
               Padding(
@@ -137,7 +200,7 @@ class VendaPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("DESCRIÇÃO",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.passionOne(
                             fontWeight: FontWeight.bold, fontSize: 18, letterSpacing: 1)),
                     const SizedBox(height: 8),
                     Text(
@@ -226,11 +289,154 @@ class VendaPage extends StatelessWidget {
                   ],
                 ),
               ),
+             Container(
+
+      color: Colors.black,
+
+      padding: EdgeInsets.all(20),
+
+      child: Column(
+
+        crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+
+          Row(
+
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+
+           
+
+              CircleAvatar(
+
+                backgroundColor: Colors.black,
+
+                radius: 30,
+
+                backgroundImage: AssetImage('assets/logo.png'), 
+
+              ),
+
+              SizedBox(width: 15),
+
+             
+
+              Expanded(
+
+                child: Text(
+
+                  'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
+
+                  style: TextStyle(
+
+                    color: Colors.white,
+
+                    fontSize: 14,
+
+                  ),
+
+                ),
+
+              ),
+
             ],
+
           ),
-        ),
+
+          SizedBox(height: 20),
+
+          Row(
+
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
+
+              // Payment Methods Image (as single image)
+
+              Image.asset(
+
+                'assets/payments.png', // Your combined payment methods image here
+
+                height: 50,
+
+              ),
+
+              SizedBox(width: 30),
+
+              // Address Section
+
+              Expanded(
+
+                child: Text(
+
+                  'AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO',
+
+                  style: TextStyle(
+
+                    color: Colors.white,
+
+                    fontSize: 12,
+
+                  ),
+
+                ),
+
+              ),
+
+            ],
+
+          ),
+
+          SizedBox(height: 30),
+
+          SizedBox(height: 10),
+
+          // Bottom Footer Row
+
+          Row(
+
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+
+              Text(
+
+                '© Outletnerd . Todos os direitos reservados',
+
+                style: TextStyle(
+
+                  color: Colors.white,
+
+                  fontSize: 12,
+
+                  letterSpacing: 1.2,
+
+                ),
+
+              ),
+
+              Image.asset(
+
+                'assets/techne.png', // 4TECHNE logo image here
+
+                height: 40,
+
+              ),
+
+            ],
+
+          ),
+
+        ],
+
       ),
-    );
+        
+       
+      
+          )  ] ), )));
+
   }
 
   Widget images(String imgpath) {

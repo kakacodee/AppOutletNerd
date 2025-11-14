@@ -242,11 +242,11 @@ class MainApp extends StatelessWidget {
 
             children: [
 
-              // Payment Methods Image (as single image)
+      
 
               Image.asset(
 
-                'assets/payments.png', // Your combined payment methods image here
+                'assets/payments.png', 
 
                 height: 50,
 
@@ -254,7 +254,7 @@ class MainApp extends StatelessWidget {
 
               SizedBox(width: 30),
 
-              // Address Section
+             
 
               Expanded(
 
@@ -282,7 +282,7 @@ class MainApp extends StatelessWidget {
 
           SizedBox(height: 10),
 
-          // Bottom Footer Row
+     
 
           Row(
 
@@ -308,7 +308,7 @@ class MainApp extends StatelessWidget {
 
               Image.asset(
 
-                'assets/techne.png', // 4TECHNE logo image here
+                'assets/techne.png', 
 
                 height: 40,
 

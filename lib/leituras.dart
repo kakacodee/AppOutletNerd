@@ -119,8 +119,7 @@ class leituras extends StatelessWidget {
                                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                 ),
                                 onPressed: () {
-                                  // Aqui você pode colocar a navegação futuramente:
-                                  // Navigator.push(context, MaterialPageRoute(builder: (_) => DetalhesProduto()));
+                              
                                 },
                                 child: Image.asset(
                                   produto["imagem"]!,
@@ -167,7 +166,7 @@ class leituras extends StatelessWidget {
 
             children: [
 
-              // Logo Section
+           
 
               CircleAvatar(
 
@@ -175,13 +174,12 @@ class leituras extends StatelessWidget {
 
                 radius: 30,
 
-                backgroundImage: AssetImage('assets/logo.png'), // Add your logo image here
+                backgroundImage: AssetImage('assets/logo.png'), 
 
               ),
 
               SizedBox(width: 15),
 
-              // Text Description
 
               Expanded(
 
@@ -213,11 +211,11 @@ class leituras extends StatelessWidget {
 
             children: [
 
-              // Payment Methods Image (as single image)
+    
 
               Image.asset(
 
-                'assets/payments.png', // Your combined payment methods image here
+                'assets/payments.png', 
 
                 height: 50,
 
@@ -252,8 +250,7 @@ class leituras extends StatelessWidget {
           SizedBox(height: 30),
 
           SizedBox(height: 10),
-
-          // Bottom Footer Row
+   
 
           Row(
 
@@ -279,7 +276,7 @@ class leituras extends StatelessWidget {
 
               Image.asset(
 
-                'assets/techne.png', // 4TECHNE logo image here
+                'assets/techne.png', 
 
                 height: 40,
 

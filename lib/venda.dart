@@ -101,7 +101,7 @@ class ProdutoCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
 
-                  // Botão
+               
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -114,7 +114,7 @@ class ProdutoCard extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                       onPressed: () {
-                        // ação ao clicar no botão
+                  
                       },
                       child: const Text(
                         'Adicionar ao Carrinho',
@@ -154,7 +154,7 @@ class VendaPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              // MENU SUPERIOR
+            
               Container(
                 color: Colors.black,
                 padding: const EdgeInsets.all(16.0),
@@ -188,12 +188,11 @@ class VendaPage extends StatelessWidget {
  Container(
   child: const ProdutoCard()
  )
-              // PRODUTO PRINCIPAL
+     
     
 
               ,const Divider(thickness: 1, height: 32),
 
-              // DESCRIÇÃO
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
@@ -214,7 +213,7 @@ class VendaPage extends StatelessWidget {
               const SizedBox(height: 20),
               const Divider(thickness: 1),
 
-              // ESPECIFICAÇÃO
+         
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
@@ -265,7 +264,7 @@ class VendaPage extends StatelessWidget {
               const SizedBox(height: 20),
               const Divider(thickness: 1),
 
-              // "Você pode gostar também"
+             
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -353,11 +352,10 @@ class VendaPage extends StatelessWidget {
 
             children: [
 
-              // Payment Methods Image (as single image)
 
               Image.asset(
 
-                'assets/payments.png', // Your combined payment methods image here
+                'assets/payments.png', 
 
                 height: 50,
 
@@ -365,7 +363,7 @@ class VendaPage extends StatelessWidget {
 
               SizedBox(width: 30),
 
-              // Address Section
+           
 
               Expanded(
 
@@ -393,7 +391,7 @@ class VendaPage extends StatelessWidget {
 
           SizedBox(height: 10),
 
-          // Bottom Footer Row
+       
 
           Row(
 
@@ -419,7 +417,7 @@ class VendaPage extends StatelessWidget {
 
               Image.asset(
 
-                'assets/techne.png', // 4TECHNE logo image here
+                'assets/techne.png', 
 
                 height: 40,
 

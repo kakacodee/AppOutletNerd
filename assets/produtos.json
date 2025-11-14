@@ -7,5 +7,23 @@
         "conteudo": "Pelúcia do Pikachu 30 cm da Murph™ muito fofinho e bacana!",
         "ref": "M4500-27",
         "idade": "A partir de 2 anos"
+    },
+    {
+        "id": 2,
+        "descricao": "Pelúcia Mário Bros Média 30cm - Murph™",
+        "preco": "49,99",
+        "imagemUrl": "assets/Mario.jpg",
+        "conteudo": "Pelúcia do Mário 30cm da Murph™ muito fofo.",
+        "ref": "TCH-2024",
+        "idade": "A partir de 5 anos"
+    },
+    {
+        "id": 3,
+        "descricao": "Action Figure Zoro - Murph™",
+        "preco": "149,99",
+        "imagemUrl": "assets/zoro.jpg",
+        "conteudo": "Action Figure do Zoro da Murph™ com detalhes incríveis.",
+        "ref": "PCD-2054",
+        "idade": "A partir de 12 anos"
     }
 ]

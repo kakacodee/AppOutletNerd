@@ -1,6 +1,7 @@
 // venda.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:outletnerd/models/produto.dart';
 import 'main.dart';
 import 'decoracoes.dart';
 import 'brinquedos.dart';
@@ -10,26 +11,39 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 void onDecoracoesPressed(BuildContext context, String title) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const decoracoes()));
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const decoracoes()),
+  );
 }
 
 void onBrinquedosPressed(BuildContext context, String title) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const brinquedos()));
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const brinquedos()),
+  );
 }
 
 void onLeiturasPressed(BuildContext context, String title) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const leituras()));
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const leituras()),
+  );
 }
 
 void onRoupasPressed(BuildContext context, String title) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const roupas()));
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const roupas()),
+  );
 }
 
 void onVoltarPressed(BuildContext context, String title) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => const MainApp()));
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const MainApp()),
+  );
 }
-
-
 
 class ProdutoCard extends StatelessWidget {
   const ProdutoCard({super.key});
@@ -43,11 +57,10 @@ class ProdutoCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          
             Card(
-             elevation: 2,
+              elevation: 2,
               child: Image.asset(
-                'assets/Pikachu.jpg', 
+                'assets/Pikachu.jpg',
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover,
@@ -62,10 +75,7 @@ class ProdutoCard extends StatelessWidget {
                 children: [
                   const Text(
                     'Pelúcia Pikachu Média 30cm - Murph™',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
                   const Text(
@@ -78,16 +88,17 @@ class ProdutoCard extends StatelessWidget {
                   ),
                   const Text(
                     'Ou 5x de 10,90 sem juros',
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 13,
-                    ),
+                    style: TextStyle(color: Colors.black54, fontSize: 13),
                   ),
                   const SizedBox(height: 8),
 
                   Row(
                     children: const [
-                      Icon(Icons.local_shipping, color: Colors.black54, size: 18),
+                      Icon(
+                        Icons.local_shipping,
+                        color: Colors.black54,
+                        size: 18,
+                      ),
                       SizedBox(width: 6),
                       Expanded(
                         child: Text(
@@ -103,7 +114,6 @@ class ProdutoCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
 
-               
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -111,13 +121,10 @@ class ProdutoCard extends StatelessWidget {
                         backgroundColor: const Color(0xFF2ECC71),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
-                        
                         ),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
-                      onPressed: () {
-                  
-                      },
+                      onPressed: () {},
                       child: const Text(
                         'Adicionar ao Carrinho',
                         style: TextStyle(
@@ -139,7 +146,7 @@ class ProdutoCard extends StatelessWidget {
 }
 
 class VendaPage extends StatelessWidget {
-  const VendaPage({super.key});
+  const VendaPage({super.key, required List<Produto> produtos});
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +163,6 @@ class VendaPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-            
               Container(
                 color: Colors.black,
                 padding: const EdgeInsets.all(16.0),
@@ -164,45 +170,67 @@ class VendaPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     TextButton(
-                      onPressed: () => onDecoracoesPressed(context, "Decorações"),
-                      child: Text('Decorações',
-                          style: GoogleFonts.passionOne(fontSize: 24, color: Colors.white)),
+                      onPressed: () =>
+                          onDecoracoesPressed(context, "Decorações"),
+                      child: Text(
+                        'Decorações',
+                        style: GoogleFonts.passionOne(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     TextButton(
-                      onPressed: () => onBrinquedosPressed(context, "Brinquedos"),
-                      child: Text('Brinquedos',
-                          style: GoogleFonts.passionOne(fontSize: 24, color: Colors.white)),
+                      onPressed: () =>
+                          onBrinquedosPressed(context, "Brinquedos"),
+                      child: Text(
+                        'Brinquedos',
+                        style: GoogleFonts.passionOne(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     TextButton(
                       onPressed: () => onRoupasPressed(context, "Roupas"),
-                      child: Text('Roupas',
-                          style: GoogleFonts.passionOne(fontSize: 24, color: Colors.white)),
+                      child: Text(
+                        'Roupas',
+                        style: GoogleFonts.passionOne(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     TextButton(
                       onPressed: () => onLeiturasPressed(context, "Leituras"),
-                      child: Text('Leituras',
-                          style: GoogleFonts.passionOne(fontSize: 24, color: Colors.white)),
+                      child: Text(
+                        'Leituras',
+                        style: GoogleFonts.passionOne(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-              
- Container(
-  child: const ProdutoCard()
- )
-     
-    
 
-              ,const Divider(thickness: 1, height: 32),
+              Container(child: const ProdutoCard()),
+              const Divider(thickness: 1, height: 32),
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("DESCRIÇÃO",
-                        style: GoogleFonts.passionOne(
-                            fontWeight: FontWeight.bold, fontSize: 18, letterSpacing: 1)),
+                    Text(
+                      "DESCRIÇÃO",
+                      style: GoogleFonts.passionOne(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        letterSpacing: 1,
+                      ),
+                    ),
                     const SizedBox(height: 8),
                     Text(
                       "Pelúcia do Pikachu 30 cm da Murph™ muito fofinho e bacana!",
@@ -215,14 +243,18 @@ class VendaPage extends StatelessWidget {
               const SizedBox(height: 20),
               const Divider(thickness: 1),
 
-         
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
-                    Text("ESPECIFICAÇÃO",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold, fontSize: 18, letterSpacing: 1)),
+                    Text(
+                      "ESPECIFICAÇÃO",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        letterSpacing: 1,
+                      ),
+                    ),
                     const SizedBox(height: 12),
                     Table(
                       columnWidths: const {
@@ -230,33 +262,60 @@ class VendaPage extends StatelessWidget {
                         1: FlexColumnWidth(2),
                       },
                       children: [
-                        TableRow(children: [
-                          Text("Conteúdo da embalagem",
-                              style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
-                          Text("Pikachu Pelúcia 30 cm", style: GoogleFonts.poppins()),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text("Referência do fornecedor",
-                                style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text("M4500-Z7", style: GoogleFonts.poppins()),
-                          ),
-                        ]),
-                        TableRow(children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text("Idade Sugerida",
-                                style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text("A partir de 2 anos", style: GoogleFonts.poppins()),
-                          ),
-                        ]),
+                        TableRow(
+                          children: [
+                            Text(
+                              "Conteúdo da embalagem",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              "Pikachu Pelúcia 30 cm",
+                              style: GoogleFonts.poppins(),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "Referência do fornecedor",
+                                style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "M4500-Z7",
+                                style: GoogleFonts.poppins(),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "Idade Sugerida",
+                                style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8.0),
+                              child: Text(
+                                "A partir de 2 anos",
+                                style: GoogleFonts.poppins(),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ],
@@ -266,15 +325,18 @@ class VendaPage extends StatelessWidget {
               const SizedBox(height: 20),
               const Divider(thickness: 1),
 
-             
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Você pode gostar também",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.bold, fontSize: 20)),
+                    Text(
+                      "Você pode gostar também",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
                     const SizedBox(height: 12),
                     SizedBox(
                       height: 120,
@@ -290,153 +352,90 @@ class VendaPage extends StatelessWidget {
                   ],
                 ),
               ),
-             Container(
+              Container(
+                color: Colors.black,
 
-      color: Colors.black,
+                padding: EdgeInsets.all(20),
 
-      padding: EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
 
-      child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
 
-        crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Colors.black,
 
-        children: [
+                          radius: 30,
 
-          Row(
+                          backgroundImage: AssetImage('assets/logo.png'),
+                        ),
 
-            crossAxisAlignment: CrossAxisAlignment.start,
+                        SizedBox(width: 15),
 
-            children: [
+                        Expanded(
+                          child: Text(
+                            'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
 
-           
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ),
+                      ],
+                    ),
 
-              CircleAvatar(
+                    SizedBox(height: 20),
 
-                backgroundColor: Colors.black,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
 
-                radius: 30,
+                      children: [
+                        Image.asset('assets/payments.png', height: 50),
 
-                backgroundImage: AssetImage('assets/logo.png'), 
+                        SizedBox(width: 30),
 
-              ),
+                        Expanded(
+                          child: Text(
+                            'AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO',
 
-              SizedBox(width: 15),
+                            style: TextStyle(color: Colors.white, fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
 
-             
+                    SizedBox(height: 30),
 
-              Expanded(
+                    SizedBox(height: 10),
 
-                child: Text(
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                  'A Outletnerd é a sua primeira escolha para produtos nerd. Com produtos exclusivos buscamos espalhar a cultura geek para todo o Brasil.',
+                      children: [
+                        Text(
+                          '© Outletnerd . Todos os direitos reservados',
 
-                  style: TextStyle(
+                          style: TextStyle(
+                            color: Colors.white,
 
-                    color: Colors.white,
+                            fontSize: 12,
 
-                    fontSize: 14,
+                            letterSpacing: 1.2,
+                          ),
+                        ),
 
-                  ),
-
+                        Image.asset('assets/techne.png', height: 40),
+                      ],
+                    ),
+                  ],
                 ),
-
               ),
-
             ],
-
           ),
-
-          SizedBox(height: 20),
-
-          Row(
-
-            crossAxisAlignment: CrossAxisAlignment.start,
-
-            children: [
-
-
-              Image.asset(
-
-                'assets/payments.png', 
-
-                height: 50,
-
-              ),
-
-              SizedBox(width: 30),
-
-           
-
-              Expanded(
-
-                child: Text(
-
-                  'AV. DOUTOR ASSIS RIBEIRO, R. ENGENHEIRO GOULART, Nº14398, SP, SÃO PAULO',
-
-                  style: TextStyle(
-
-                    color: Colors.white,
-
-                    fontSize: 12,
-
-                  ),
-
-                ),
-
-              ),
-
-            ],
-
-          ),
-
-          SizedBox(height: 30),
-
-          SizedBox(height: 10),
-
-       
-
-          Row(
-
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-            children: [
-
-              Text(
-
-                '© Outletnerd . Todos os direitos reservados',
-
-                style: TextStyle(
-
-                  color: Colors.white,
-
-                  fontSize: 12,
-
-                  letterSpacing: 1.2,
-
-                ),
-
-              ),
-
-              Image.asset(
-
-                'assets/techne.png', 
-
-                height: 40,
-
-              ),
-
-            ],
-
-          ),
-
-        ],
-
+        ),
       ),
-        
-       
-      
-          )  ] ), )));
-
+    );
   }
 
   Widget images(String imgpath) {
@@ -454,4 +453,5 @@ class VendaPage extends StatelessWidget {
         ),
       ),
     );
-  }}
+  }
+}

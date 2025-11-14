@@ -2,9 +2,11 @@ class Produto {
   final int id;
   final String nome;
   final String descricao;
-  final double preco;
+  final String preco;
   final String imagemUrl;
-  final int estoque;
+  final String conteudo;
+  final String ref;
+  final String idade;
 
   Produto({
     required this.id,
@@ -12,7 +14,9 @@ class Produto {
     required this.descricao,
     required this.preco,
     required this.imagemUrl,
-    required this.estoque,
+    required this.conteudo,
+    required this.ref,
+    required this.idade,
   });
 
   factory Produto.fromJson(Map<String, dynamic> json) {
@@ -20,9 +24,11 @@ class Produto {
       id: json['id'],
       nome: json['nome'],
       descricao: json['descricao'],
-      preco: (json['preco'] as num).toDouble(),
+      preco: json['preco'],
       imagemUrl: json['imagemUrl'],
-      estoque: json['estoque'],
+      conteudo: json['conteudo'],
+      ref: json['ref'],
+      idade: json['idade'],
     );
   }
 
@@ -33,7 +39,9 @@ class Produto {
       'descricao': descricao,
       'preco': preco,
       'imagemUrl': imagemUrl,
-      'estoque': estoque,
+      'conteudo': conteudo,
+      'ref': ref,
+      'idade': idade,
     };
   }
 }

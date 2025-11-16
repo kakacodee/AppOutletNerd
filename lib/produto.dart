@@ -3,6 +3,7 @@ class Produto {
   final String nome;
   final String descricao;
   final String preco;
+  final String parcelamento;
   final String imagemUrl;
   final String conteudo;
   final String ref;
@@ -13,6 +14,7 @@ class Produto {
     required this.nome,
     required this.descricao,
     required this.preco,
+    required this.parcelamento,
     required this.imagemUrl,
     required this.conteudo,
     required this.ref,
@@ -25,6 +27,7 @@ class Produto {
       nome: json['nome'],
       descricao: json['descricao'],
       preco: json['preco'],
+      parcelamento: json['parcelamento'],
       imagemUrl: json['imagemUrl'],
       conteudo: json['conteudo'],
       ref: json['ref'],
@@ -38,10 +41,13 @@ class Produto {
       'nome': nome,
       'descricao': descricao,
       'preco': preco,
+      'parcelamento': parcelamento,
       'imagemUrl': imagemUrl,
       'conteudo': conteudo,
       'ref': ref,
       'idade': idade,
     };
   }
+
+  
 }

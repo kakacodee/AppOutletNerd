@@ -1,29 +1,478 @@
 [
     {
         "id": 1,
-        "descricao": "Pelúcia Pikachu Média 30cm - Murph™",
-        "preco": "50,90",
+        "nome": "Pelúcia Pikachu Média 30cm - Murph™",
+        "descricao": "Pelúcia Pikachu Média 30cm do Murph™ muito fofinho e bacana!",
+        "preco": "55,00",
+        "parcelamento": "Ou 5x de R$11,00 sem juros",
         "imagemUrl": "assets/Pikachu.jpg",
-        "conteudo": "Pelúcia do Pikachu 30 cm da Murph™ muito fofinho e bacana!",
+        "conteudo": "Pelúcia 30 cm",
         "ref": "M4500-27",
         "idade": "A partir de 2 anos"
     },
     {
         "id": 2,
-        "descricao": "Pelúcia Mário Bros Média 30cm - Murph™",
-        "preco": "49,99",
+        "nome": "Pelúcia Mário Média 30cm - Murph™",
+        "descricao": "Pelúcia do Mário 30cm da Murph™ muito fofo.",
+        "preco": "50,00",
+        "parcelamento": "Ou 5x de R$10,00 sem juros",
         "imagemUrl": "assets/Mario.jpg",
-        "conteudo": "Pelúcia do Mário 30cm da Murph™ muito fofo.",
+        "conteudo": "Pelúcia Mário 30cm",
         "ref": "TCH-2024",
         "idade": "A partir de 5 anos"
     },
     {
         "id": 3,
-        "descricao": "Action Figure Zoro - Murph™",
-        "preco": "149,99",
+         "nome": "Action Figure Zoro Pequena 15cm - Murph™",
+        "descricao": "Action Figure do Zoro da Murph™ com detalhes incríveis.",
+        "preco": "150,00",
+         "parcelamento": "Ou 3x de R$50,00 sem juros",
         "imagemUrl": "assets/zoro.jpg",
-        "conteudo": "Action Figure do Zoro da Murph™ com detalhes incríveis.",
+        "conteudo": "Action Figure Zoro 15cm.",
         "ref": "PCD-2054",
         "idade": "A partir de 12 anos"
-    }
+    },
+  
+
+{
+    "id": 4,
+    "nome": "Lego Star Wars X-Wing Mini",
+    "descricao": "Mini kit de montar da X-Wing de Star Wars.",
+    "preco": "90,00",
+    "parcelamento": "Ou 3x de R$30,00 sem juros",
+    "imagemUrl": "assets/legoXwing.jpg",
+    "conteudo": "Kit com 120 peças",
+    "ref": "BRQ-2001",
+    "idade": "A partir de 8 anos"
+},
+{
+    "id": 5,
+    "nome": "Beyblade Dragoon Turbo",
+    "descricao": "Beyblade modelo Dragoon com alta performance.",
+    "preco": "70,00",
+    "parcelamento": "Ou 2x de R$35,00 sem juros",
+    "imagemUrl": "assets/beybladeDragoon.jpg",
+    "conteudo": "Peão + lançador",
+    "ref": "BRQ-2002",
+    "idade": "A partir de 6 anos"
+},
+{
+    "id": 6,
+    "nome": "Carrinho Hot Wheels Mario Kart - Murph™",
+    "descricao": "Carrinho colecionável do Mario Kart.",
+    "preco": "30,00",
+    "parcelamento": "Ou 3x de R$10,00 sem juros",
+    "imagemUrl": "assets/hwMario.jpg",
+    "conteudo": "Mini carrinho Mario Kart",
+    "ref": "BRQ-2003",
+    "idade": "A partir de 3 anos"
+},
+{
+    "id": 7,
+    "nome": "Pelúcia Charmander 25cm - Murph™",
+    "descricao": "Pelúcia fofinha do Charmander com 25cm.",
+    "preco": "50,00",
+    "parcelamento": "Ou 5x de R$10,00 sem juros",
+    "imagemUrl": "assets/charmander.jpg",
+    "conteudo": "Pelúcia 25cm",
+    "ref": "BRQ-2004",
+    "idade": "A partir de 2 anos"
+},
+{
+    "id": 8,
+    "nome": "Action Figure Deku 18cm - Murph™",
+    "descricao": "Action figure detalhada do Deku.",
+    "preco": "110,00",
+    "parcelamento": "Ou 5x de R$22,00 sem juros",
+    "imagemUrl": "assets/deku.jpg",
+    "conteudo": "Action Figure 18cm",
+    "ref": "BRQ-2005",
+    "idade": "A partir de 12 anos"
+},
+{
+    "id": 9,
+    "nome": "Miniatura Batmóvel 1989 - Murph™",
+    "descricao": "Mini batmóvel colecionável inspirado no filme de 1989.",
+    "preco": "185,00",
+    "parcelamento": "Ou 5x de R$37,00 sem juros",
+    "imagemUrl": "assets/batmovel.jpg",
+    "conteudo": "Miniatura 12cm",
+    "ref": "BRQ-2006",
+    "idade": "A partir de 10 anos"
+},
+{
+    "id": 10,
+    "nome": "Funko Pop Goku Super Saiyajin",
+    "descricao": "Funko Pop original do Goku em Super Saiyajin.",
+    "preco": "130,00",
+    "parcelamento": "Ou 5x de R$26,00 sem juros",
+    "imagemUrl": "assets/funkoGoku.jpg",
+    "conteudo": "Funko Pop Goku",
+    "ref": "BRQ-2007",
+    "idade": "A partir de 14 anos"
+},
+{
+    "id": 11,
+    "nome": "Kit Slime Galaxy",
+    "descricao": "Kit slime brilhante com tema galáxia.",
+    "preco": "25,00",
+    "parcelamento": "Ou 2x de R$12,50 sem juros",
+    "imagemUrl": "assets/slimeGalaxy.jpg",
+    "conteudo": "3 potes de slime",
+    "ref": "BRQ-2008",
+    "idade": "A partir de 4 anos"
+},
+{
+    "id": 12,
+    "nome": "Yo-Yo Metálico Pro - Murph™",
+    "descricao": "Yo-Yo profissional metálico para truques.",
+    "preco": "45,00",
+    "parcelamento": "Ou 3x de R$15,00 sem juros",
+    "imagemUrl": "assets/yoyoMetal.jpg",
+    "conteudo": "Yo-Yo metálico",
+    "ref": "BRQ-2009",
+    "idade": "A partir de 7 anos"
+}, 
+
+  {
+    "id": 13,
+    "nome": "Quadro Minecraft",
+    "descricao": "Quadro do jogo Minecraft",
+    "preco": "55,00",
+    "parcelamento": "Ou 5x de R$11,00 sem juros",
+    "imagemUrl": "assets/terrarioMinecraft.jpg",
+    "conteudo": "Quadro 40x30 cm",
+    "ref": "DEC-1009",
+    "idade": "A partir de 5 anos"
+}, 
+
+    {
+    "id": 14,
+    "nome": "Quadro Decorativo Zelda",
+    "descricao": "Quadro decorativo inspirado em The Legend of Zelda.",
+    "preco": "40,00",
+    "parcelamento": "Ou 4x de R$10,00 sem juros",
+    "imagemUrl": "assets/quadroZelda.jpg",
+    "conteudo": "Quadro 30x20 cm",
+    "ref": "DEC-1001",
+    "idade": "Livre"
+},
+{
+    "id": 15,
+    "nome": "Luminária Pokébola LED - Murph™",
+    "descricao": "Luminária temática de Pokébola com luz LED.",
+    "preco": "80,00",
+    "parcelamento": "Ou 4x de R$20,00 sem juros",
+    "imagemUrl": "assets/luminariaPoke.jpg",
+    "conteudo": "Luminária Pokébola",
+    "ref": "DEC-1002",
+    "idade": "A partir de 5 anos"
+},
+{
+    "id": 16,
+    "nome": "Almofada Naruto Kyuubi - Murph™",
+    "descricao": "Almofada temática do Naruto em modo Kyuubi.",
+    "preco": "45,00",
+    "parcelamento": "Ou 3x de R$15,00 sem juros",
+    "imagemUrl": "assets/almofadaNaruto.jpg",
+    "conteudo": "Almofada 40x40 cm",
+    "ref": "DEC-1003",
+    "idade": "Livre"
+},
+{
+    "id": 17,
+    "nome": "Relógio de Parede Star Wars - Murph™",
+    "descricao": "Relógio temático de Star Wars em MDF.",
+    "preco": "70,00",
+    "parcelamento": "Ou 3x de R$23,33 sem juros",
+    "imagemUrl": "assets/relogioSW.jpg",
+    "conteudo": "Relógio Star Wars MDF",
+    "ref": "DEC-1004",
+    "idade": "Livre"
+},
+{
+    "id": 18,
+    "nome": "Poster One Piece Wanted Luffy - Murph™",
+    "descricao": "Poster clássico do cartaz de procurado do Luffy.",
+    "preco": "20,00",
+    "parcelamento": "Ou 2x de R$10,00 sem juros",
+    "imagemUrl": "assets/posterLuffy.jpg",
+    "conteudo": "Poster 60x40 cm",
+    "ref": "DEC-1005",
+    "idade": "Livre"
+},
+{
+    "id": 19,
+    "nome": "Estátua Decorativa Sonic 20cm - Murph™",
+    "descricao": "Pequena estátua decorativa do Sonic em pose clássica.",
+    "preco": "95,00",
+    "parcelamento": "Ou 5x de R$19,00 sem juros",
+    "imagemUrl": "assets/sonicDecor.jpg",
+    "conteudo": "Estátua Sonic 20cm",
+    "ref": "DEC-1006",
+    "idade": "A partir de 10 anos"
+},
+{
+    "id": 20,
+    "nome": "Letreiro LED Anime Room - Murph™",
+    "descricao": "Letreiro neon LED para decorar ambientes gamer e otaku.",
+    "preco": "120,00",
+    "parcelamento": "Ou 6x de R$20,00 sem juros",
+    "imagemUrl": "assets/letreiroAnime.jpg",
+    "conteudo": "Letreiro LED",
+    "ref": "DEC-1007",
+    "idade": "A partir de 8 anos"
+},
+{
+  "id": 21,
+  "nome": "Quadro Decorativo Neon do Luffy - Murph™",
+  "descricao": "Quadro decorativo do Luffy com efeito neon vibrante, perfeito para compor ambientes temáticos.",
+  "preco": "120,00",
+  "parcelamento": "Ou 6x de R$20,00 sem juros",
+  "imagemUrl": "assets/quadroneon.jpg",
+  "conteudo": "Quadro Luffy Neon 40x30cm",
+  "ref": "QD-LFNEON-40",
+  "idade": "Livre"
+  },
+{
+    "id": 21,
+    "nome": "Porta-Livros Batman - Murph™",
+    "descricao": "Suporte porta-livros com silhueta do Batman.",
+    "preco": "60,00",
+    "parcelamento": "Ou 3x de R$20,00 sem juros",
+    "imagemUrl": "assets/portaLivrosBatman.jpg",
+    "conteudo": "Par de porta-livros",
+    "ref": "DEC-1008",
+    "idade": "Livre"
+},
+
+
+{
+    "id": 22,
+    "nome": "Camiseta Naruto Akatsuki - Murph™",
+    "descricao": "Camiseta preta estilizada com nuvens da Akatsuki.",
+    "preco": "60,00",
+    "parcelamento": "Ou 3x de R$20,00 sem juros",
+    "imagemUrl": "assets/camisaAkatsuki.jpg",
+    "conteudo": "Camiseta 100% algodão",
+    "ref": "RPS-3001",
+    "idade": "Adulto"
+},
+{
+    "id": 23,
+    "nome": "Camiseta One Piece Jolly Roger - Murph™",
+    "descricao": "Camiseta com o símbolo dos Chapéus de Palha.",
+    "preco": "55,00",
+    "parcelamento": "Ou 5x de R$11,00 sem juros",
+    "imagemUrl": "assets/camisaOnePiece.jpg",
+    "conteudo": "Camiseta 100% algodão",
+    "ref": "RPS-3002",
+    "idade": "Adulto"
+},
+{
+    "id": 24,
+    "nome": "Camiseta Naruto - Estampa Naruto Sábio - Murph™",
+    "descricao": "Camiseta 100% algodão com estampa exclusiva do Naruto Modo Sábio.",
+    "preco": "69,90",
+    "parcelamento": "Ou 3x de R$23,30 sem juros",
+    "imagemUrl": "assets/camiseta_naruto.jpg",
+    "conteudo": "1 Camiseta Naruto Sábio",
+    "ref": "RPG-6630",
+    "idade": "A partir de 10 anos"
+},
+
+{
+    "id": 25,
+    "nome": "Moletom Pokémon Team Valor - Murph™",
+    "descricao": "Moletom vermelho estiloso do Team Valor.",
+    "preco": "120,00",
+    "parcelamento": "Ou 6x de R$20,00 sem juros",
+    "imagemUrl": "assets/moletomValor.jpg",
+    "conteudo": "Moletom algodão premium",
+    "ref": "RPS-3003",
+    "idade": "Adulto"
+},
+{
+    "id": 26,
+    "nome": "Camiseta Dragon Ball Vegeta - Murph™",
+    "descricao": "Camiseta com estampa do Vegeta Super Saiyajin.",
+    "preco": "58,00",
+    "parcelamento": "Ou 4x de R$14,50 sem juros",
+    "imagemUrl": "assets/camisaVegeta.jpg",
+    "conteudo": "Camiseta 100% algodão",
+    "ref": "RPS-3004",
+    "idade": "Adulto"
+},
+{
+    "id": 27,
+    "nome": "Camiseta Mario Bros Pixel - Murph™",
+    "descricao": "Camiseta com estampa retrô do Mario em pixel art.",
+    "preco": "50,00",
+    "parcelamento": "Ou 5x de R$10,00 sem juros",
+    "imagemUrl": "assets/camisaMario.jpg",
+    "conteudo": "Camiseta 100% algodão",
+    "ref": "RPS-3005",
+    "idade": "Adulto"
+},
+{
+    "id": 28,
+    "nome": "Blusa Harry Potter Grifinória - Murph™",
+    "descricao": "Blusa temática da casa Grifinória.",
+    "preco": "90,00",
+    "parcelamento": "Ou 3x de R$30,00 sem juros",
+    "imagemUrl": "assets/blusaHP.jpg",
+    "conteudo": "Blusa térmica",
+    "ref": "RPS-3006",
+    "idade": "Adulto"
+},
+{
+    "id": 29,
+    "nome": "Boné Star Wars Império - Murph™",
+    "descricao": "Boné preto com símbolo do Império Galáctico.",
+    "preco": "40,00",
+    "parcelamento": "Ou 4x de R$10,00 sem juros",
+    "imagemUrl": "assets/boneStarWars.jpg",
+    "conteudo": "Boné ajustável",
+    "ref": "RPS-3007",
+    "idade": "Adulto"
+},
+{
+    "id": 30,
+    "nome": "Camiseta Attack on Titan - Murph™",
+    "descricao": "Camiseta com o brasão da Divisão de Exploração.",
+    "preco": "62,00",
+    "parcelamento": "Ou 4x de R$15,50 sem juros",
+    "imagemUrl": "assets/camisaAOT.jpg",
+    "conteudo": "Camiseta 100% algodão",
+    "ref": "RPS-3008",
+    "idade": "Adulto"
+},
+{
+    "id": 31,
+    "nome": "Moletom Sonic Speed - Murph™",
+    "descricao": "Moletom azul com estampa clássica do Sonic.",
+    "preco": "115,00",
+    "parcelamento": "Ou 5x de R$23,00 sem juros",
+    "imagemUrl": "assets/moletomSonic.jpg",
+    "conteudo": "Moletom premium",
+    "ref": "RPS-3009",
+    "idade": "Adulto"
+},
+
+{
+    "id": 32,
+    "nome": "Mangá One Piece Vol. 1",
+    "descricao": "Primeiro volume da saga de One Piece.",
+    "preco": "35,00",
+    "parcelamento": "Ou 3x de R$11,66 sem juros",
+    "imagemUrl": "assets/op1.jpg",
+    "conteudo": "Volume 1",
+    "ref": "MNG-4001",
+    "idade": "A partir de 12 anos"
+},
+{
+    "id": 33,
+    "nome": "Mangá Naruto Vol. 5",
+    "descricao": "Volume 5 da saga Naruto.",
+    "preco": "33,00",
+    "parcelamento": "Ou 3x de R$11,00 sem juros",
+    "imagemUrl": "assets/naruto5.jpg",
+    "conteudo": "Volume 5",
+    "ref": "MNG-4002",
+    "idade": "A partir de 12 anos"
+},
+{
+    "id": 34,
+    "nome": "Gibi Turma da Mônica Nº 190",
+    "descricao": "Edição clássica da Turma da Mônica.",
+    "preco": "12,00",
+    "parcelamento": "Ou 2x de R$6,00 sem juros",
+    "imagemUrl": "assets/monica190.jpg",
+    "conteudo": "Gibi nº 190",
+    "ref": "MNG-4003",
+    "idade": "Livre"
+},
+{
+    "id": 35,
+    "nome": "Mangá Tokyo Ghoul Vol. 3",
+    "descricao": "Volume 3 do mangá Tokyo Ghoul.",
+    "preco": "34,00",
+    "parcelamento": "Ou 2x de R$17,00 sem juros",
+    "imagemUrl": "assets/tg3.jpg",
+    "conteudo": "Volume 3",
+    "ref": "MNG-4004",
+    "idade": "A partir de 16 anos"
+},
+{
+    "id": 36,
+    "nome": "Mangá Jujutsu Kaisen Vol. 1",
+    "descricao": "Primeiro volume de Jujutsu Kaisen.",
+    "preco": "37,00",
+    "parcelamento": "Ou 3x de R$12,33 sem juros",
+    "imagemUrl": "assets/jjk1.jpg",
+    "conteudo": "Volume 1",
+    "ref": "MNG-4005",
+    "idade": "A partir de 14 anos"
+},
+{
+    "id": 37,
+    "nome": "Gibi Homem-Aranha Edição Especial",
+    "descricao": "Edição especial do Homem-Aranha com capa dura.",
+    "preco": "55,00",
+    "parcelamento": "Ou 5x de R$11,00 sem juros",
+    "imagemUrl": "assets/spiderSpec.jpg",
+    "conteudo": "Edição de luxo",
+    "ref": "MNG-4006",
+    "idade": "A partir de 12 anos"
+},
+{
+    "id": 38,
+    "nome": "Mangá Attack on Titan Vol. 2",
+    "descricao": "Segundo volume de Attack on Titan.",
+    "preco": "35,00",
+    "parcelamento": "Ou 3x de R$11,66 sem juros",
+    "imagemUrl": "assets/aot2.jpg",
+    "conteudo": "Volume 2",
+    "ref": "MNG-4007",
+    "idade": "A partir de 14 anos"
+},
+{
+    "id": 39,
+    "nome": "Mangá Chainsaw Man Vol. 1",
+    "descricao": "Primeiro volume de Chainsaw Man.",
+    "preco": "39,00",
+    "parcelamento": "Ou 3x de R$13,00 sem juros",
+    "imagemUrl": "assets/csm1.jpg",
+    "conteudo": "Volume 1",
+    "ref": "MNG-4008",
+    "idade": "A partir de 16 anos"
+},
+{
+    "id": 40,
+    "nome": "Gibi X-Men Clássico Nº 27",
+    "descricao": "Edição clássica dos X-Men.",
+    "preco": "20,00",
+    "parcelamento": "Ou 2x de R$10,00 sem juros",
+    "imagemUrl": "assets/xmen27.jpg",
+    "conteudo": "Gibi nº 27",
+    "ref": "MNG-4009",
+    "idade": "A partir de 12 anos"
+},
+
+{
+    "id": 41,
+    "nome": "Mangá Demon Slayer Vol. 01",
+    "descricao": "Primeiro volume do mangá Demon Slayer, com impressão de alta qualidade.",
+    "preco": "34,90",
+    "parcelamento": "Ou 2x de R$17,45 sem juros",
+    "imagemUrl": "assets/demonslayerv1.jpg",
+    "conteudo": "Mangá Demon Slayer Volume 01",
+    "ref": "MNG-4412",
+    "idade": "A partir de 12 anos"
+}
+
+
+
+    
+    
 ]

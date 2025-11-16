@@ -1,6 +1,13 @@
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'venda.dart';
+import 'produto.dart';
+import 'dart:math';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'leituras.dart';
+import 'brinquedos.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -24,22 +31,54 @@ void onVoltarPressed(BuildContext context, String title) {
   );
 }
 
-class roupas extends StatelessWidget {
+void onBrinquedosPressed(BuildContext context, String title) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const brinquedos()),
+  );
+}
+
+void onLeiturasPressed(BuildContext context, String title) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const leituras()),
+  );
+}
+
+void onRoupasPressed(BuildContext context, String title) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const roupas()),
+  );
+}
+
+class roupas extends StatefulWidget {
   const roupas({super.key});
+   @override
+  State<roupas> createState() => _Roupas();
+}
+
+class _Roupas extends State<roupas> {
+  List<Produto> produtos = [];
+  @override
+  void initState() {
+    super.initState();
+    carregarProdutos();
+  }
+
+  Future<void> carregarProdutos() async {
+    final String response = await rootBundle.loadString('assets/produtos.json');
+    final data = json.decode(response);
+
+    setState(() {
+      produtos = (data as List).map((e) => Produto.fromJson(e)).toList();
+    });
+  }
+  
 
   @override
   Widget build(BuildContext context) {
-    final produtos = [
-      {"imagem": "assets/lego_marvel.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/lego_sonic.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/miles_mask.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/arqueira.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/batmovel.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/jogos.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/capitao.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/stitch1.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-      {"imagem": "assets/stitch2.png", "titulo": "Brinquedo", "preco": "de 99,99 R\$ por 79,99 R\$"},
-    ];
+
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -47,12 +86,34 @@ class roupas extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(169, 7, 7, 1),
+          centerTitle: true,
           leading: IconButton(
             icon: Image.asset('assets/logo.png'),
             onPressed: () {
               onVoltarPressed(context, "MainApp");
             },
-          ),
+          ),   
+           title: SizedBox(
+           height: 35,
+    width: 208,
+    child: TextField(
+      onChanged: (value) {
+        setState(() {
+          searchQuery = value.toLowerCase();
+        });
+      },
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        suffixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
+        ),
+      ),
+    ),
+  ),
         ),
     body: SingleChildScrollView(child: Column(
           children: <Widget>[
@@ -69,17 +130,17 @@ class roupas extends StatelessWidget {
              
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "brinquedos");
+                onBrinquedosPressed(context, "brinquedos");
                 }, child: Text('Brinquedos', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),),
               
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "roupas");
+                onRoupasPressed(context, "roupas");
                 }, child: Text('Roupas', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),),
               
                 ),
                        TextButton(onPressed:() {
-                onDecoracoesPressed(context, "Leituras");
+                onLeiturasPressed(context, "Leituras");
                 }, child: Text('Leituras', style: GoogleFonts.passionOne(fontSize: 24,color: Colors.white),
 
                 ),
@@ -99,11 +160,12 @@ class roupas extends StatelessWidget {
                     crossAxisSpacing: 16,
                     childAspectRatio: 0.7,
                   ),
-                  itemCount: produtos.length,
+                  itemCount: min(produtos.length, 9),
                   itemBuilder: (context, index) {
-                    final produto = produtos[index];
+                    final produto = produtos[index + 22];
                     return Card(
-                      elevation: 4,
+                    color: Colors.white,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -120,26 +182,30 @@ class roupas extends StatelessWidget {
                                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                 ),
                                 onPressed: () {
-                                 
+                                 Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => VendaPage(produto: produto, produtos: [],)
+            ));
                                 },
                                 child: Image.asset(
-                                  produto["imagem"]!,
+                                  produto.imagemUrl,
                                   fit: BoxFit.contain,
                                 ),
                               ),
                             ),
                           ),
                           Text(
-                            produto["titulo"]!,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                            produto.nome,
+                            style: GoogleFonts.instrumentSans(
+                              fontSize: 15,
+                              
+                          
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
-                              produto["preco"]!,
+                             'Por:R\$ ${produto.preco}', 
                               textAlign: TextAlign.center,
                               style: const TextStyle(fontSize: 14),
                             ),
@@ -167,7 +233,7 @@ class roupas extends StatelessWidget {
 
             children: [
 
-           
+          
 
               CircleAvatar(
 
@@ -175,13 +241,13 @@ class roupas extends StatelessWidget {
 
                 radius: 30,
 
-                backgroundImage: AssetImage('assets/logo.png'),
+                backgroundImage: AssetImage('assets/logo.png'), 
 
               ),
 
               SizedBox(width: 15),
 
-              
+        
 
               Expanded(
 
@@ -213,16 +279,18 @@ class roupas extends StatelessWidget {
 
             children: [
 
-            
+
               Image.asset(
 
-                'assets/payments.png',
+                'assets/payments.png', 
 
                 height: 50,
 
               ),
 
               SizedBox(width: 30),
+
+       
 
               Expanded(
 
@@ -250,7 +318,7 @@ class roupas extends StatelessWidget {
 
           SizedBox(height: 10),
 
-          
+  
 
           Row(
 

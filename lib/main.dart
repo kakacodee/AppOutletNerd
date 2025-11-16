@@ -8,7 +8,9 @@ import 'decoracoes.dart';
 import 'brinquedos.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'venda.dart';
-import 'models/produto.dart';
+import 'produto.dart';
+import 'dart:math';
+
 
 void main() {
   runApp(MaterialApp(title: "APP", home: MainApp()));
@@ -38,7 +40,7 @@ void onLeiturasPressed(BuildContext context, String title) {
 void onRoupasPressed(BuildContext context, String title) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const leituras()),
+    MaterialPageRoute(builder: (context) => const roupas()),
   );
 }
 
@@ -48,81 +50,70 @@ void onVoltarPressed(BuildContext context, String title) {
     MaterialPageRoute(builder: (context) => const MainApp()),
   );
 }
+String searchQuery = "";
 
-class GridProdutos extends StatefulWidget {
-  const GridProdutos({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({super.key});
 
   @override
-  State<GridProdutos> createState() => _GridProdutosState();
+  State<MainApp> createState() => _MainAppState();
 }
 
-class _GridProdutosState extends State<GridProdutos> {
+class _MainAppState extends State<MainApp> {
   List<Produto> produtos = [];
   @override
   void initState() {
     super.initState();
     carregarProdutos();
+    
   }
 
   Future<void> carregarProdutos() async {
-    final String response = await rootBundle.loadString('assets/produto.json');
+    final String response = await rootBundle.loadString('assets/produtos.json');
     final data = json.decode(response);
 
     setState(() {
       produtos = (data as List).map((e) => Produto.fromJson(e)).toList();
     });
   }
+  
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      itemCount: produtos.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-      ),
-      itemBuilder: (context, index) {
-        final produto = produtos[index];
-        return InkWell(
-          borderRadius: BorderRadius.circular(16),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => VendaPage(produtos: produtos)),
-            );
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.red, width: 3),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(13),
-              child: Image.asset(produto.imagemUrl, fit: BoxFit.cover),
-            ),
-          ),
-        );
-      },
-    );
-  }
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+      return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(169, 7, 7, 1),
+          centerTitle: true,
           leading: IconButton(
             icon: Image.asset('assets/logo.png'),
-            onPressed: () {},
+            onPressed: () {
+              onVoltarPressed(context, "MainApp");
+            },
           ),
+           title: SizedBox(
+           height: 35,
+    width: 208,
+    child: TextField(
+      onChanged: (value) {
+        setState(() {
+          searchQuery = value.toLowerCase();
+        });
+      },
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        suffixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
         ),
+      ),
+    ),
+  ),
+),
+        
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -213,8 +204,40 @@ class MainApp extends StatelessWidget {
                 ),
               ),
 
-              Center(child: GridProdutos()),
+    Container( 
+      child: GridView.builder(
+      shrinkWrap: true,
+      itemCount: min(produtos.length, 6),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+      ),
+      itemBuilder: (context, index) {
+        final produto = produtos[index];
+        return InkWell(
+          borderRadius: BorderRadius.circular(16),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => VendaPage(produto: produto, produtos: produtos),
+            ));
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(color: Colors.red, width: 3),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(13),
+              child: Image.asset(produto.imagemUrl, fit: BoxFit.cover),
+            ),
+          ),
+        );
+      },
+    ),),
 
+    const SizedBox(height: 100,),
               Container(
                 color: Colors.black,
 
@@ -268,9 +291,9 @@ class MainApp extends StatelessWidget {
                       ],
                     ),
 
-                    SizedBox(height: 30),
+                    SizedBox(height: 50),
 
-                    SizedBox(height: 10),
+                    
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -296,8 +319,9 @@ class MainApp extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
+        )));
+ 
   }
 }
+
+

@@ -51,6 +51,7 @@ void onVoltarPressed(BuildContext context, String title) {
   );
 }
 String searchQuery = "";
+ final FocusNode searchFocus = FocusNode();
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
@@ -61,6 +62,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   List<Produto> produtos = [];
+  List<Produto> sugestoesp = [];
   @override
   void initState() {
     super.initState();
@@ -91,15 +93,28 @@ class _MainAppState extends State<MainApp> {
               onVoltarPressed(context, "MainApp");
             },
           ),
-           title: SizedBox(
-           height: 35,
-    width: 208,
-    child: TextField(
-      onChanged: (value) {
-        setState(() {
-          searchQuery = value.toLowerCase();
-        });
-      },
+title: Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    SizedBox(
+      height: 38,
+      width: 250,
+      child: TextField(
+          focusNode: searchFocus,
+        onChanged: (value) {
+          setState(() {
+            searchQuery = value.toLowerCase();
+
+
+            sugestoesp = produtos.where((produto) {
+              final nome = produto.nome.toLowerCase();
+              return nome.contains(searchQuery);
+            }).toList();
+             const int maxSugestoes = 5;
+    if (sugestoesp.length > maxSugestoes) {
+      sugestoesp = sugestoesp.sublist(0, maxSugestoes);
+         } });
+        },
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -112,9 +127,11 @@ class _MainAppState extends State<MainApp> {
       ),
     ),
   ),
-),
-        
-        body: SingleChildScrollView(
+
+
+
+ ]), ),      
+        body: Stack( children: [ SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
@@ -174,6 +191,36 @@ class _MainAppState extends State<MainApp> {
                   ],
                 ),
               ),
+    if (sugestoesp.isNotEmpty && searchQuery.isNotEmpty)
+      Positioned(
+        width: 250,
+        child: Material(
+          child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: sugestoesp.length,
+                  itemBuilder: (context, index) {
+                    final produto = sugestoesp[index];
+            return ListTile(
+              title: Text(produto.nome, style: const TextStyle(fontSize: 14)),
+              onTap: () {
+                FocusScope.of(context).unfocus(); // recolhe teclado
+                // ➜ REDIRECIONA PARA A PÁGINA DO PRODUTO
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => VendaPage(produto: produto, produtos: produtos,),
+                  ),
+                );
+
+                setState(() => sugestoesp = []);
+              },
+            );
+          }
+          )
+        ),
+      ),
+  
+
               Container(
                 child: Center(
                   child: Column(
@@ -317,9 +364,12 @@ class _MainAppState extends State<MainApp> {
                   ],
                 ),
               ),
-            ],
-          ),
-        )));
+        ])
+        )
+        
+        
+]),
+        ));
  
   }
 }

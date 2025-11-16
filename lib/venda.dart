@@ -33,6 +33,7 @@ void onVoltarPressed(BuildContext context, String title) {
 class VendaPage extends StatelessWidget {
   final Produto produto;
    final List<Produto> produtos;
+   
 
   const VendaPage({super.key, required this.produto, required this.produtos});
 
@@ -48,9 +49,11 @@ List<Produto> sugestoes() {
 
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(169, 7, 7, 1),
+        centerTitle: true,
         leading: IconButton(
           icon: Image.asset('assets/logo.png'),
           onPressed: () => onVoltarPressed(context, "MainApp"),
+      
         ),
       ),
 

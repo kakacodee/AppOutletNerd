@@ -203,8 +203,8 @@ title: Column(
             return ListTile(
               title: Text(produto.nome, style: const TextStyle(fontSize: 14)),
               onTap: () {
-                FocusScope.of(context).unfocus(); // recolhe teclado
-                // ➜ REDIRECIONA PARA A PÁGINA DO PRODUTO
+                FocusScope.of(context).unfocus(); 
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(

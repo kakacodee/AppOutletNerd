@@ -1,3 +1,5 @@
+import 'package:outletnerd/decoracoes.dart';
+
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,13 +13,15 @@ import 'leituras.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MaterialApp(title: "Brinquedos", home: const brinquedos()));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: brinquedos()));
 }
 
 void onDecoracoesPressed(BuildContext context, String title) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const brinquedos()),
+    MaterialPageRoute(builder: (context) => const decoracoes()),
   );
 }
 
@@ -75,9 +79,8 @@ class _Brinquedos extends State<brinquedos> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return
+       Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(169, 7, 7, 1),
@@ -388,7 +391,7 @@ class _Brinquedos extends State<brinquedos> {
             ),
           ],
         ),
-      ),
-    );
+      );
+  
   }
 }

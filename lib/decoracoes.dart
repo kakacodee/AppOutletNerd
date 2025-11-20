@@ -12,7 +12,9 @@ import 'brinquedos.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MaterialApp(title: "Decorações", home: const decoracoes()));
+  runApp( MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home:decoracoes()));
 }
 
 void onDecoracoesPressed(BuildContext context, String title) {
@@ -76,9 +78,7 @@ class _Decoracoes extends State<decoracoes> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(169, 7, 7, 1),
@@ -91,7 +91,7 @@ class _Decoracoes extends State<decoracoes> {
           ),
           title: SizedBox(
             height: 35,
-            width: 208,
+            width: 250,
             child: TextField(
               onChanged: (value) {
                 setState(() {
@@ -383,7 +383,7 @@ class _Decoracoes extends State<decoracoes> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }

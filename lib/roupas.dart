@@ -1,3 +1,5 @@
+import 'package:outletnerd/decoracoes.dart';
+
 import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,13 +12,15 @@ import 'leituras.dart';
 import 'brinquedos.dart';
 
 void main() {
-  runApp(MaterialApp(title: "Roupas", home: const roupas()));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: roupas()));
 }
 
 void onDecoracoesPressed(BuildContext context, String title) {
   Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const roupas()),
+    MaterialPageRoute(builder: (context) => const decoracoes()),
   );
 }
 
@@ -74,9 +78,7 @@ class _Roupas extends State<roupas> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: const Color.fromRGBO(169, 7, 7, 1),
@@ -380,7 +382,7 @@ class _Roupas extends State<roupas> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }
